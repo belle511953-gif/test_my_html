@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>第1屆亞洲大洋洲劍道錦標賽｜賽程與直播總覽</title>
+  <meta name="description" content="第1屆亞洲大洋洲劍道錦標賽的每日賽程、場次分類、直播連結與進度頁總覽。" />
+  <style>
+    :root{
+      --bg:#0b0c10;
+      --panel:#141821;
+      --panel-2:#1a1f29;
+      --text:#f4eee5;
+      --muted:#b7b0a7;
+      --gold:#d6b06b;
+      --gold-2:#f1d7a5;
+      --line:rgba(255,255,255,.09);
+      --shadow:0 24px 70px rgba(0,0,0,.42);
+      --radius:24px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(214,176,107,.18), transparent 28%),
+        radial-gradient(circle at 85% 15%, rgba(241,215,165,.12), transparent 22%),
+        linear-gradient(180deg, #0a0b0f 0%, #10131a 50%, #090a0d 100%);
+    }
+    a{color:inherit}
+    .wrap{max-width:1200px;margin:0 auto;padding:28px 18px 64px}
+    .panel{
+      border:1px solid var(--line);
+      border-radius:32px;
+      overflow:hidden;
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      box-shadow:var(--shadow);
+    }
+    .hero{
+      position:relative;
+      min-height:82vh;
+      background:
+        linear-gradient(90deg, rgba(8,9,12,.86) 0%, rgba(8,9,12,.54) 45%, rgba(8,9,12,.12) 100%),
+        url("./assets-hero.png") center/cover no-repeat;
+    }
+    .hero::after{
+      content:"";
+      position:absolute;inset:0;
+      background:
+        linear-gradient(140deg, rgba(214,176,107,.09), transparent 38%),
+        radial-gradient(circle at 68% 22%, rgba(255,255,255,.08), transparent 22%);
+      pointer-events:none;
+    }
+    .hero-inner{
+      position:relative;
+      z-index:1;
+      min-height:82vh;
+      display:grid;
+      align-items:end;
+      padding:36px;
+    }
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:.55rem;
+      padding:.56rem .92rem;
+      border:1px solid rgba(214,176,107,.35);
+      border-radius:999px;
+      color:var(--gold-2);
+      background:rgba(14,15,19,.35);
+      backdrop-filter:blur(12px);
+      font-size:.78rem;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+    h1{
+      margin:.85rem 0 .82rem;
+      font-size:clamp(2.2rem, 6vw, 5.4rem);
+      line-height:.92;
+      letter-spacing:-.05em;
+      max-width:12ch;
+    }
+    .lead{
+      max-width:54ch;
+      color:#eee6d9;
+      font-size:clamp(1rem, 1.7vw, 1.16rem);
+      line-height:1.8;
+      margin:0 0 1.65rem;
+    }
+    .actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:.95rem 1.2rem;
+      border-radius:999px;
+      text-decoration:none;
+      border:1px solid transparent;
+      font-weight:800;
+      transition:transform .2s ease, border-color .2s ease, background .2s ease;
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .btn.primary{background:linear-gradient(135deg, var(--gold), #f0cf8f); color:#1a1204}
+    .btn.secondary{border-color:rgba(255,255,255,.16);background:rgba(255,255,255,.04)}
+    .grid{display:grid;gap:18px;margin-top:22px}
+    .overview{grid-template-columns:repeat(4, minmax(0, 1fr))}
+    .card{padding:20px;background:linear-gradient(180deg, rgba(27,31,40,.95), rgba(20,24,33,.95))}
+    .meta{
+      font-size:.82rem;
+      text-transform:uppercase;
+      color:var(--gold-2);
+      letter-spacing:.09em;
+      margin-bottom:.45rem;
+    }
+    .value{
+      font-size:1.08rem;
+      line-height:1.55;
+      margin:0;
+      color:var(--text);
+    }
+    .section{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns:1.12fr .88fr;
+      gap:18px;
+      align-items:start;
+    }
+    .section h2{
+      margin:0 0 12px;
+      font-size:1.45rem;
+    }
+    .section p,.small{color:var(--muted);line-height:1.75;margin:0}
+    .schedule-table-wrap{
+      overflow-x:auto;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.03);
+    }
+    table.schedule-table{
+      width:100%;
+      min-width:760px;
+      border-collapse:collapse;
+    }
+    .schedule-table th,
+    .schedule-table td{
+      padding:14px 16px;
+      text-align:left;
+      border-bottom:1px solid rgba(255,255,255,.08);
+      vertical-align:top;
+      line-height:1.65;
+    }
+    .schedule-table thead th{
+      color:var(--gold-2);
+      font-size:.84rem;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      background:rgba(255,255,255,.02);
+    }
+    .schedule-table tbody tr:last-child td{border-bottom:none}
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:.28rem .65rem;
+      border-radius:999px;
+      background:rgba(214,176,107,.14);
+      color:var(--gold-2);
+      font-size:.82rem;
+      font-weight:700;
+      white-space:nowrap;
+    }
+    .hero-image{
+      min-height:330px;
+      background:
+        linear-gradient(180deg, rgba(10,11,14,.06), rgba(10,11,14,.46)),
+        url("./assets-card.png") center/cover no-repeat;
+    }
+    .links{display:grid;gap:12px}
+    .link-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+      justify-content:space-between;
+      padding:16px 18px;
+      border-radius:18px;
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.07);
+    }
+    .link-row strong{display:block;margin-bottom:.2rem}
+    .link-row span{color:var(--muted);font-size:.92rem}
+    .link-row a{
+      white-space:nowrap;
+      text-decoration:none;
+      color:#1a1204;
+      background:linear-gradient(135deg, var(--gold), var(--gold-2));
+      padding:.7rem 1rem;
+      border-radius:999px;
+      font-weight:800;
+    }
+    .sources{margin-top:18px;padding:20px}
+    .sources ul{
+      margin:12px 0 0;
+      padding-left:18px;
+      color:var(--muted);
+      line-height:1.8;
+    }
+    .footer{
+      margin-top:18px;
+      color:var(--muted);
+      font-size:.92rem;
+      text-align:center;
+    }
+    @media (max-width: 980px){
+      .overview{grid-template-columns:repeat(2, minmax(0, 1fr))}
+      .section{grid-template-columns:1fr}
+      .hero-inner{padding:22px}
+      .hero{min-height:auto}
+      .hero-image{min-height:240px}
+    }
+    @media (max-width: 640px){
+      .wrap{padding:14px 12px 42px}
+      .overview{grid-template-columns:1fr}
+      .link-row{align-items:flex-start}
+      .link-row a{width:100%;text-align:center}
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero panel">
+      <div class="hero-inner">
+        <div>
+          <div class="eyebrow">1st Asia Oceania Kendo Championships</div>
+          <h1>第1屆亞洲大洋洲劍道錦標賽</h1>
+          <p class="lead">
+            這個頁面把官方賽程、場次分類、直播連結與進度頁整合在一起。
+            你可以直接用它追 2026 年 5 月 30 日至 31 日於東京武道館舉行的賽事。
+          </p>
+          <div class="actions">
+            <a class="btn primary" href="#schedule">看每日賽程</a>
+            <a class="btn secondary" href="#streams">看直播連結</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid overview">
+      <article class="panel card">
+        <div class="meta">日期</div>
+        <p class="value">2026 年 5 月 30 日 - 5 月 31 日</p>
+      </article>
+      <article class="panel card">
+        <div class="meta">會場</div>
+        <p class="value">東京武道館<br />東京都足立區綾瀨 3-20-1</p>
+      </article>
+      <article class="panel card">
+        <div class="meta">主辦</div>
+        <p class="value">AOKF<br />協辦：AJKF、東京都劍道連盟</p>
+      </article>
+      <article class="panel card">
+        <div class="meta">直播</div>
+        <p class="value">YouTube 串流<br />Tonamel 進度頁</p>
+      </article>
+    </section>
+
+    <section class="section">
+      <article class="panel card">
+        <h2 id="schedule">每日賽程表格</h2>
+        <div class="schedule-table-wrap" style="margin-top:14px">
+          <table class="schedule-table">
+            <thead>
+              <tr>
+                <th style="width:120px">日期</th>
+                <th style="width:96px">順序</th>
+                <th>賽程區分</th>
+                <th style="width:220px">直播 / 進度頁</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="tag">Day 1</span></td>
+                <td>1</td>
+                <td>開幕式</td>
+                <td>
+                  <a href="https://www.youtube.com/live/RJ9AkTw779E?si=t1KzWWzt5oZH7XP6" target="_blank" rel="noreferrer">Day1 2ch</a>
+                </td>
+              </tr>
+              <tr>
+                <td><span class="tag">Day 1</span></td>
+                <td>2</td>
+                <td>女子個人（三段以下）</td>
+                <td>
+                  <a href="https://www.youtube.com/live/7nmlBq-FEyw?si=Pxf-VszbgDv-mHFR" target="_blank" rel="noreferrer">Day1 1ch</a><br />
+                  <a href="https://tonamel.com/competition/eM6ql/court?" target="_blank" rel="noreferrer">女子個人進度</a>
+                </td>
+              </tr>
+              <tr>
+                <td><span class="tag">Day 2</span></td>
+                <td>3</td>
+                <td>男子個人（三段以下）</td>
+                <td>
+                  <a href="https://www.youtube.com/live/7nmlBq-FEyw?si=Pxf-VszbgDv-mHFR" target="_blank" rel="noreferrer">Day1 1ch</a><br />
+                  <a href="https://tonamel.com/competition/1o7fb/court?" target="_blank" rel="noreferrer">男子個人進度</a>
+                </td>
+              </tr>
+              <tr>
+                <td><span class="tag">Day 1</span></td>
+                <td>4</td>
+                <td>女子個人（無段位限制）</td>
+                <td>
+                  <a href="https://www.youtube.com/live/AXz73boqsuY?si=mVTbSt-tgCo5KK1r" target="_blank" rel="noreferrer">Day1 3ch</a><br />
+                  <a href="https://tonamel.com/competition/faXVo/court?" target="_blank" rel="noreferrer">女子無段位進度</a>
+                </td>
+              </tr>
+              <tr>
+                <td><span class="tag">Day 1</span></td>
+                <td>5</td>
+                <td>男子個人（無段位限制）</td>
+                <td>
+                  <a href="https://www.youtube.com/live/fMTTjioIwhw?si=m-70bJJmyNyL__3U" target="_blank" rel="noreferrer">Day1 4ch</a><br />
+                  <a href="https://tonamel.com/competition/B68Ow/court?" target="_blank" rel="noreferrer">男子無段位進度</a>
+                </td>
+              </tr>
+              <tr>
+                <td><span class="tag">Day 1</span></td>
+                <td>6</td>
+                <td>演武、劍道體驗</td>
+                <td>
+                  <a href="https://www.youtube.com/live/AXz73boqsuY?si=mVTbSt-tgCo5KK1r" target="_blank" rel="noreferrer">Day1 3ch</a><br />
+                  <a href="https://www.youtube.com/live/fMTTjioIwhw?si=m-70bJJmyNyL__3U" target="_blank" rel="noreferrer">Day1 4ch</a>
+                </td>
+              </tr>
+              <tr>
+                <td><span class="tag">Day 2</span></td>
+                <td>1</td>
+                <td>女子團體賽</td>
+                <td>
+                  <a href="https://www.youtube.com/live/-hgSYtg7C6Y?si=BhBBUiO1T2cEW7hG" target="_blank" rel="noreferrer">Day2 1ch</a><br />
+                  <a href="https://tonamel.com/competition/sFaCp/court?" target="_blank" rel="noreferrer">女子團體進度</a>
+                </td>
+              </tr>
+              <tr>
+                <td><span class="tag">Day 2</span></td>
+                <td>2</td>
+                <td>男子團體賽</td>
+                <td>
+                  <a href="https://www.youtube.com/live/ShMb6xoES9Q?si=plLDDtSMHb2_PmPU" target="_blank" rel="noreferrer">Day2 2ch</a><br />
+                  <a href="https://tonamel.com/competition/PTMkU/court?" target="_blank" rel="noreferrer">男子團體進度</a>
+                </td>
+              </tr>
+              <tr>
+                <td><span class="tag">Day 2</span></td>
+                <td>3</td>
+                <td>劍道體驗</td>
+                <td>
+                  <a href="https://www.youtube.com/live/5w9ZTFPNHM8?si=AJxi6VaTylAcmFIv" target="_blank" rel="noreferrer">Day2 3ch</a><br />
+                  <a href="https://www.youtube.com/live/h8DxsslhXPw?si=ltWZO-647mP7ZfQw" target="_blank" rel="noreferrer">Day2 5th feed</a>
+                </td>
+              </tr>
+              <tr>
+                <td><span class="tag">Day 2</span></td>
+                <td>4</td>
+                <td>閉幕式</td>
+                <td>
+                  <a href="https://www.youtube.com/live/XFX865FIGq0?si=y7Tlq6T59dSejab3" target="_blank" rel="noreferrer">Day2 4ch</a><br />
+                  <a href="https://www.youtube.com/live/h8DxsslhXPw?si=ltWZO-647mP7ZfQw" target="_blank" rel="noreferrer">Day2 5th feed</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <aside class="panel hero-image" aria-label="劍道錦標賽主視覺圖"></aside>
+    </section>
+
+    <section class="section">
+      <article class="panel card">
+        <h2 id="streams">各場地直播連結</h2>
+        <div class="links" style="margin-top:14px">
+          <div class="link-row">
+            <div>
+              <strong>官方直播播放清單</strong>
+              <span>YouTube playlist，適合先整包收藏</span>
+            </div>
+            <a href="https://youtube.com/playlist?list=PLaKZ0PAEUfwUuG-VkGyElmndGBawbxExR&si=U3ymTsRPRGlYB_DR" target="_blank" rel="noreferrer">開啟</a>
+          </div>
+          <div class="link-row">
+            <div>
+              <strong>Day 1 - 1ch</strong>
+              <span>上午主要賽事</span>
+            </div>
+            <a href="https://www.youtube.com/live/7nmlBq-FEyw?si=Pxf-VszbgDv-mHFR" target="_blank" rel="noreferrer">開啟</a>
+          </div>
+          <div class="link-row">
+            <div>
+              <strong>Day 1 - 2ch</strong>
+              <span>開幕式與儀式內容</span>
+            </div>
+            <a href="https://www.youtube.com/live/RJ9AkTw779E?si=t1KzWWzt5oZH7XP6" target="_blank" rel="noreferrer">開啟</a>
+          </div>
+          <div class="link-row">
+            <div>
+              <strong>Day 1 - 3ch</strong>
+              <span>下午個人賽、演武內容</span>
+            </div>
+            <a href="https://www.youtube.com/live/AXz73boqsuY?si=mVTbSt-tgCo5KK1r" target="_blank" rel="noreferrer">開啟</a>
+          </div>
+          <div class="link-row">
+            <div>
+              <strong>Day 1 - 4ch</strong>
+              <span>下午補充場次</span>
+            </div>
+            <a href="https://www.youtube.com/live/fMTTjioIwhw?si=m-70bJJmyNyL__3U" target="_blank" rel="noreferrer">開啟</a>
+          </div>
+          <div class="link-row">
+            <div>
+              <strong>Day 2 - 1ch</strong>
+              <span>女子團體賽</span>
+            </div>
+            <a href="https://www.youtube.com/live/-hgSYtg7C6Y?si=BhBBUiO1T2cEW7hG" target="_blank" rel="noreferrer">開啟</a>
+          </div>
+          <div class="link-row">
+            <div>
+              <strong>Day 2 - 2ch</strong>
+              <span>男子團體賽</span>
+            </div>
+            <a href="https://www.youtube.com/live/ShMb6xoES9Q?si=plLDDtSMHb2_PmPU" target="_blank" rel="noreferrer">開啟</a>
+          </div>
+          <div class="link-row">
+            <div>
+              <strong>Day 2 - 3ch</strong>
+              <span>團體賽補充場次</span>
+            </div>
+            <a href="https://www.youtube.com/live/5w9ZTFPNHM8?si=AJxi6VaTylAcmFIv" target="_blank" rel="noreferrer">開啟</a>
+          </div>
+          <div class="link-row">
+            <div>
+              <strong>Day 2 - 4ch</strong>
+              <span>閉幕與補充內容</span>
+            </div>
+            <a href="https://www.youtube.com/live/XFX865FIGq0?si=y7Tlq6T59dSejab3" target="_blank" rel="noreferrer">開啟</a>
+          </div>
+          <div class="link-row">
+            <div>
+              <strong>Day 2 - 5ch</strong>
+              <span>官方公告列出的額外直播入口</span>
+            </div>
+            <a href="https://www.youtube.com/live/h8DxsslhXPw?si=ltWZO-647mP7ZfQw" target="_blank" rel="noreferrer">開啟</a>
+          </div>
+        </div>
+      </article>
+
+      <aside class="panel card">
+        <h2>進行資訊</h2>
+        <div class="links" style="margin-top:14px">
+          <div class="link-row"><div><strong>女子個人（三段以下）</strong><span>Day 1 上午</span></div><a href="https://tonamel.com/competition/eM6ql/court?" target="_blank" rel="noreferrer">開啟</a></div>
+          <div class="link-row"><div><strong>男子個人（三段以下）</strong><span>Day 1 上午</span></div><a href="https://tonamel.com/competition/1o7fb/court?" target="_blank" rel="noreferrer">開啟</a></div>
+          <div class="link-row"><div><strong>女子個人（無段位限制）</strong><span>Day 1 下午</span></div><a href="https://tonamel.com/competition/faXVo/court?" target="_blank" rel="noreferrer">開啟</a></div>
+          <div class="link-row"><div><strong>男子個人（無段位限制）</strong><span>Day 1 下午</span></div><a href="https://tonamel.com/competition/B68Ow/court?" target="_blank" rel="noreferrer">開啟</a></div>
+          <div class="link-row"><div><strong>女子團體</strong><span>Day 2</span></div><a href="https://tonamel.com/competition/sFaCp/court?" target="_blank" rel="noreferrer">開啟</a></div>
+          <div class="link-row"><div><strong>男子團體</strong><span>Day 2</span></div><a href="https://tonamel.com/competition/PTMkU/court?" target="_blank" rel="noreferrer">開啟</a></div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="panel sources">
+      <h2 style="margin:0">官方參考來源</h2>
+      <ul>
+        <li><a href="https://1aokc.jp/" target="_blank" rel="noreferrer">1AOKC 官方網站（日文）</a></li>
+        <li><a href="https://1aokc.jp/en" target="_blank" rel="noreferrer">1AOKC 官方網站（英文）</a></li>
+        <li><a href="https://1aokc.jp/news/005" target="_blank" rel="noreferrer">官方直播公告</a></li>
+        <li><a href="https://www.kendo.or.jp/" target="_blank" rel="noreferrer">全日本剣道連盟（AJKF）</a></li>
+      </ul>
+    </section>
+
+    <p class="footer">資料依官方公告整理，若直播或賽程有更新，建議以 1AOKC 官網為準。</p>
+  </main>
+</body>
+</html>
