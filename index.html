@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>第1屆亞洲大洋洲劍道錦標賽｜賽程與直播總覽</title>
-  <meta name="description" content="第1屆亞洲大洋洲劍道錦標賽的每日賽程、場次分類、直播連結與進度頁總覽。" />
+  <title>第一屆亞洲大洋洲劍道錦標賽賽程與直播</title>
+  <meta name="description" content="整理第一屆亞洲大洋洲劍道錦標賽的賽程、各場地直播與中華台北場次對照。" />
   <style>
     :root{
       --bg:#0b0c10;
@@ -42,12 +42,13 @@
       position:relative;
       min-height:82vh;
       background:
-        linear-gradient(90deg, rgba(8,9,12,.86) 0%, rgba(8,9,12,.54) 45%, rgba(8,9,12,.12) 100%),
+        linear-gradient(90deg, rgba(8,9,12,.88) 0%, rgba(8,9,12,.58) 40%, rgba(8,9,12,.08) 100%),
         url("./assets-hero.png") center/cover no-repeat;
     }
     .hero::after{
       content:"";
-      position:absolute;inset:0;
+      position:absolute;
+      inset:0;
       background:
         linear-gradient(140deg, rgba(214,176,107,.09), transparent 38%),
         radial-gradient(circle at 68% 22%, rgba(255,255,255,.08), transparent 22%);
@@ -127,7 +128,7 @@
     .section{
       margin-top:18px;
       display:grid;
-      grid-template-columns:1.12fr .88fr;
+      grid-template-columns:1fr;
       gap:18px;
       align-items:start;
     }
@@ -163,6 +164,33 @@
       background:rgba(255,255,255,.02);
     }
     .schedule-table tbody tr:last-child td{border-bottom:none}
+    .match-table{min-width:1280px}
+    .match-table thead th{
+      text-transform:none;
+      letter-spacing:.04em;
+    }
+    .highlight td{
+      background:rgba(214,176,107,.08);
+    }
+    .channel-chip{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:.32rem .72rem;
+      border-radius:999px;
+      border:1px solid rgba(214,176,107,.35);
+      color:var(--gold-2);
+      background:rgba(214,176,107,.12);
+      font-weight:700;
+      white-space:nowrap;
+      text-decoration:none;
+      transition:transform .2s ease, background .2s ease, border-color .2s ease;
+    }
+    .channel-chip:hover{
+      transform:translateY(-1px);
+      background:rgba(214,176,107,.18);
+      border-color:rgba(214,176,107,.55);
+    }
     .tag{
       display:inline-flex;
       align-items:center;
@@ -174,12 +202,6 @@
       font-size:.82rem;
       font-weight:700;
       white-space:nowrap;
-    }
-    .hero-image{
-      min-height:330px;
-      background:
-        linear-gradient(180deg, rgba(10,11,14,.06), rgba(10,11,14,.46)),
-        url("./assets-card.png") center/cover no-repeat;
     }
     .links{display:grid;gap:12px}
     .link-row{
@@ -206,29 +228,28 @@
     }
     .sources{margin-top:18px;padding:20px}
     .sources ul{
-      margin:12px 0 0;
-      padding-left:18px;
+      margin:0;
+      padding-left:1.15rem;
       color:var(--muted);
       line-height:1.8;
     }
     .footer{
-      margin-top:18px;
+      margin-top:22px;
       color:var(--muted);
-      font-size:.92rem;
       text-align:center;
+      font-size:.92rem;
     }
     @media (max-width: 980px){
       .overview{grid-template-columns:repeat(2, minmax(0, 1fr))}
-      .section{grid-template-columns:1fr}
       .hero-inner{padding:22px}
       .hero{min-height:auto}
-      .hero-image{min-height:240px}
     }
     @media (max-width: 640px){
       .wrap{padding:14px 12px 42px}
       .overview{grid-template-columns:1fr}
       .link-row{align-items:flex-start}
-      .link-row a{width:100%;text-align:center}
+      .actions{gap:10px}
+      .btn{width:100%}
     }
   </style>
 </head>
@@ -238,14 +259,13 @@
       <div class="hero-inner">
         <div>
           <div class="eyebrow">1st Asia Oceania Kendo Championships</div>
-          <h1>第1屆亞洲大洋洲劍道錦標賽</h1>
+          <h1>第一屆亞洲大洋洲劍道錦標賽</h1>
           <p class="lead">
-            這個頁面把官方賽程、場次分類、直播連結與進度頁整合在一起。
-            你可以直接用它追 2026 年 5 月 30 日至 31 日於東京武道館舉行的賽事。
+            這是一個整理賽程、直播場地與中華台北出賽對照的單頁總覽。所有直播連結已依官方播放清單與場地順序整理，方便快速找到每一場。
           </p>
           <div class="actions">
-            <a class="btn primary" href="#schedule">看每日賽程</a>
-            <a class="btn secondary" href="#streams">看直播連結</a>
+            <a class="btn primary" href="#tpe">查看中華台北場次</a>
+            <a class="btn secondary" href="#streams">查看直播入口</a>
           </div>
         </div>
       </div>
@@ -254,60 +274,183 @@
     <section class="grid overview">
       <article class="panel card">
         <div class="meta">日期</div>
-        <p class="value">2026 年 5 月 30 日 - 5 月 31 日</p>
+        <p class="value">2026 年 5 月 30 日至 5 月 31 日</p>
       </article>
       <article class="panel card">
-        <div class="meta">會場</div>
-        <p class="value">東京武道館<br />東京都足立區綾瀨 3-20-1</p>
+        <div class="meta">地點</div>
+        <p class="value">Tokyo Budokan<br />東京都足立區綾瀬 3-20-1</p>
       </article>
       <article class="panel card">
         <div class="meta">主辦</div>
-        <p class="value">AOKF<br />協辦：AJKF、東京都劍道連盟</p>
+        <p class="value">AOKF<br />與 AJKF / 全日本剣道連盟相關單位</p>
       </article>
       <article class="panel card">
         <div class="meta">直播</div>
-        <p class="value">YouTube 串流<br />Tonamel 進度頁</p>
+        <p class="value">YouTube 官方直播<br />官方播放清單與各場地頻道</p>
       </article>
+    </section>
+
+    <section class="panel card" id="tpe">
+      <h2>中華台北場次表</h2>
+      <p class="small" style="margin-bottom:14px">以下是依你確認版本整理的中文表格，直播欄位已經直接連到對應的場地影片。</p>
+      <div class="schedule-table-wrap">
+        <table class="schedule-table match-table">
+          <thead>
+            <tr>
+              <th style="width:110px">日期</th>
+              <th style="width:180px">項目</th>
+              <th style="width:180px">台灣隊選手／隊伍</th>
+              <th>第一場對手</th>
+              <th style="width:150px">對手國家中文</th>
+              <th style="width:110px">比賽場地</th>
+              <th style="width:110px">出賽場次</th>
+              <th style="width:150px">直播頻道</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="highlight">
+              <td>5/30（六）</td>
+              <td>男子個人／無段位限制</td>
+              <td><strong>TPE1 C. TSAI</strong></td>
+              <td><strong>KGZ2 R. KYDRALIEV</strong></td>
+              <td>吉爾吉斯</td>
+              <td>比賽場 2</td>
+              <td>第 5 場</td>
+              <td><a class="channel-chip" href="https://www.youtube.com/live/fMTTjioIwhw?si=m-70bJJmyNyL__3U" target="_blank" rel="noreferrer">第2試合場</a></td>
+            </tr>
+            <tr class="highlight">
+              <td>5/30（六）</td>
+              <td>男子個人／無段位限制</td>
+              <td><strong>TPE2 W. CHEN</strong></td>
+              <td><strong>KOR5 J. JANG</strong></td>
+              <td>韓國</td>
+              <td>比賽場 3</td>
+              <td>第 6 場</td>
+              <td><a class="channel-chip" href="https://www.youtube.com/live/AXz73boqsuY?si=mVTbSt-tgCo5KK1r" target="_blank" rel="noreferrer">第3試合場</a></td>
+            </tr>
+            <tr class="highlight">
+              <td>5/30（六）</td>
+              <td>男子個人／三段以下</td>
+              <td><strong>TPE9 Y. WANG</strong></td>
+              <td><strong>第 3 場勝者：CAM2 B. MEAS / PHI3 Y. INOUE</strong></td>
+              <td>柬埔寨／菲律賓</td>
+              <td>比賽場 1</td>
+              <td>第 13 場</td>
+              <td><a class="channel-chip" href="https://www.youtube.com/live/7nmlBq-FEyw?si=Pxf-VszbgDv-mHFR" target="_blank" rel="noreferrer">第1試合場</a></td>
+            </tr>
+            <tr class="highlight">
+              <td>5/30（六）</td>
+              <td>男子個人／三段以下</td>
+              <td><strong>TPE8 H. LAI</strong></td>
+              <td><strong>UZB2 O. UKTAMOV</strong></td>
+              <td>烏茲別克</td>
+              <td>比賽場 3</td>
+              <td>第 7 場</td>
+              <td><a class="channel-chip" href="https://www.youtube.com/live/AXz73boqsuY?si=mVTbSt-tgCo5KK1r" target="_blank" rel="noreferrer">第3試合場</a></td>
+            </tr>
+            <tr class="highlight">
+              <td>5/30（六）</td>
+              <td>女子個人／無段位限制</td>
+              <td><strong>TPE4 W. HSU</strong></td>
+              <td><strong>VIE5 L. NGUYEN THUY</strong></td>
+              <td>越南</td>
+              <td>比賽場 2</td>
+              <td>第 12 場</td>
+              <td><a class="channel-chip" href="https://www.youtube.com/live/fMTTjioIwhw?si=m-70bJJmyNyL__3U" target="_blank" rel="noreferrer">第2試合場</a></td>
+            </tr>
+            <tr class="highlight">
+              <td>5/30（六）</td>
+              <td>女子個人／無段位限制</td>
+              <td><strong>TPE5 Y. WU</strong></td>
+              <td><strong>MYA3 Kyi Kyi Swe</strong></td>
+              <td>緬甸</td>
+              <td>比賽場 4</td>
+              <td>第 20 場</td>
+              <td><a class="channel-chip" href="https://www.youtube.com/live/25LyUfnt12s" target="_blank" rel="noreferrer">第4試合場</a></td>
+            </tr>
+            <tr class="highlight">
+              <td>5/30（六）</td>
+              <td>女子個人／三段以下</td>
+              <td><strong>TPE7 W. TSAO</strong></td>
+              <td><strong>INA5 Lina</strong></td>
+              <td>印尼</td>
+              <td>比賽場 1</td>
+              <td>第 2 場</td>
+              <td><a class="channel-chip" href="https://www.youtube.com/live/7nmlBq-FEyw?si=Pxf-VszbgDv-mHFR" target="_blank" rel="noreferrer">第1試合場</a></td>
+            </tr>
+            <tr class="highlight">
+              <td>5/30（六）</td>
+              <td>女子個人／三段以下</td>
+              <td><strong>TPE1 C. LIU</strong></td>
+              <td><strong>CHN1 W. CAI</strong></td>
+              <td>中國</td>
+              <td>比賽場 3</td>
+              <td>第 9 場</td>
+              <td><a class="channel-chip" href="https://www.youtube.com/live/AXz73boqsuY?si=mVTbSt-tgCo5KK1r" target="_blank" rel="noreferrer">第3試合場</a></td>
+            </tr>
+            <tr class="highlight">
+              <td>5/31（日）</td>
+              <td>男子團體</td>
+              <td><strong>TPE Chinese Taipei</strong></td>
+              <td><strong>VIE Vietnam</strong></td>
+              <td>越南</td>
+              <td>比賽場 2</td>
+              <td>第 2 場</td>
+              <td><a class="channel-chip" href="https://www.youtube.com/live/XFX865FIGg0" target="_blank" rel="noreferrer">第2試合場</a></td>
+            </tr>
+            <tr class="highlight">
+              <td>5/31（日）</td>
+              <td>女子團體</td>
+              <td><strong>TPE Chinese Taipei</strong></td>
+              <td><strong>MGL Mongolia</strong></td>
+              <td>蒙古</td>
+              <td>比賽場 4</td>
+              <td>第 1 場</td>
+              <td><a class="channel-chip" href="https://www.youtube.com/live/h8DxsslhXPw?si=y7Tlq6T59dSejab3" target="_blank" rel="noreferrer">第4試合場</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
     <section class="section">
       <article class="panel card">
-        <h2 id="schedule">每日賽程表格</h2>
+        <h2 id="schedule">每日賽程表</h2>
         <div class="schedule-table-wrap" style="margin-top:14px">
           <table class="schedule-table">
             <thead>
               <tr>
                 <th style="width:120px">日期</th>
-                <th style="width:96px">順序</th>
-                <th>賽程區分</th>
-                <th style="width:220px">直播 / 進度頁</th>
+                <th style="width:96px">場次</th>
+                <th>內容</th>
+                <th style="width:220px">直播 / 進度</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td><span class="tag">Day 1</span></td>
                 <td>1</td>
-                <td>開幕式</td>
+                <td>開閉會式</td>
                 <td>
-                  <a href="https://www.youtube.com/live/RJ9AkTw779E?si=t1KzWWzt5oZH7XP6" target="_blank" rel="noreferrer">Day1 2ch</a>
+                  <a href="https://www.youtube.com/live/RJ9AkTw779E?si=t1KzWWzt5oZH7XP6" target="_blank" rel="noreferrer">開閉會式頻道</a>
                 </td>
               </tr>
               <tr>
                 <td><span class="tag">Day 1</span></td>
                 <td>2</td>
-                <td>女子個人（三段以下）</td>
+                <td>男子個人（三段以下）</td>
                 <td>
-                  <a href="https://www.youtube.com/live/7nmlBq-FEyw?si=Pxf-VszbgDv-mHFR" target="_blank" rel="noreferrer">Day1 1ch</a><br />
-                  <a href="https://tonamel.com/competition/eM6ql/court?" target="_blank" rel="noreferrer">女子個人進度</a>
+                  <a href="https://www.youtube.com/live/7nmlBq-FEyw?si=Pxf-VszbgDv-mHFR" target="_blank" rel="noreferrer">第 1 試合場</a><br />
+                  <a href="https://tonamel.com/competition/1o7fb" target="_blank" rel="noreferrer">Tonamel 進度頁</a>
                 </td>
               </tr>
               <tr>
-                <td><span class="tag">Day 2</span></td>
+                <td><span class="tag">Day 1</span></td>
                 <td>3</td>
-                <td>男子個人（三段以下）</td>
+                <td>男子個人（無段位限制）</td>
                 <td>
-                  <a href="https://www.youtube.com/live/7nmlBq-FEyw?si=Pxf-VszbgDv-mHFR" target="_blank" rel="noreferrer">Day1 1ch</a><br />
-                  <a href="https://tonamel.com/competition/1o7fb/court?" target="_blank" rel="noreferrer">男子個人進度</a>
+                  <a href="https://www.youtube.com/live/fMTTjioIwhw?si=m-70bJJmyNyL__3U" target="_blank" rel="noreferrer">第 2 試合場</a><br />
+                  <a href="https://tonamel.com/competition/B68Ow" target="_blank" rel="noreferrer">Tonamel 進度頁</a>
                 </td>
               </tr>
               <tr>
@@ -315,173 +458,165 @@
                 <td>4</td>
                 <td>女子個人（無段位限制）</td>
                 <td>
-                  <a href="https://www.youtube.com/live/AXz73boqsuY?si=mVTbSt-tgCo5KK1r" target="_blank" rel="noreferrer">Day1 3ch</a><br />
-                  <a href="https://tonamel.com/competition/faXVo/court?" target="_blank" rel="noreferrer">女子無段位進度</a>
+                  <a href="https://www.youtube.com/live/AXz73boqsuY?si=mVTbSt-tgCo5KK1r" target="_blank" rel="noreferrer">第 3 試合場</a><br />
+                  <a href="https://tonamel.com/competition/faXVo" target="_blank" rel="noreferrer">Tonamel 進度頁</a>
                 </td>
               </tr>
               <tr>
                 <td><span class="tag">Day 1</span></td>
                 <td>5</td>
-                <td>男子個人（無段位限制）</td>
+                <td>女子個人（三段以下）</td>
                 <td>
-                  <a href="https://www.youtube.com/live/fMTTjioIwhw?si=m-70bJJmyNyL__3U" target="_blank" rel="noreferrer">Day1 4ch</a><br />
-                  <a href="https://tonamel.com/competition/B68Ow/court?" target="_blank" rel="noreferrer">男子無段位進度</a>
-                </td>
-              </tr>
-              <tr>
-                <td><span class="tag">Day 1</span></td>
-                <td>6</td>
-                <td>演武、劍道體驗</td>
-                <td>
-                  <a href="https://www.youtube.com/live/AXz73boqsuY?si=mVTbSt-tgCo5KK1r" target="_blank" rel="noreferrer">Day1 3ch</a><br />
-                  <a href="https://www.youtube.com/live/fMTTjioIwhw?si=m-70bJJmyNyL__3U" target="_blank" rel="noreferrer">Day1 4ch</a>
+                  <a href="https://www.youtube.com/live/25LyUfnt12s" target="_blank" rel="noreferrer">第 4 試合場</a><br />
+                  <a href="https://tonamel.com/competition/eM6ql" target="_blank" rel="noreferrer">Tonamel 進度頁</a>
                 </td>
               </tr>
               <tr>
                 <td><span class="tag">Day 2</span></td>
                 <td>1</td>
-                <td>女子團體賽</td>
+                <td>開閉會式</td>
                 <td>
-                  <a href="https://www.youtube.com/live/-hgSYtg7C6Y?si=BhBBUiO1T2cEW7hG" target="_blank" rel="noreferrer">Day2 1ch</a><br />
-                  <a href="https://tonamel.com/competition/sFaCp/court?" target="_blank" rel="noreferrer">女子團體進度</a>
+                  <a href="https://www.youtube.com/live/ShMb6xoES9Q?si=plLDDtSMHb2_PmPU" target="_blank" rel="noreferrer">開閉會式頻道</a>
                 </td>
               </tr>
               <tr>
                 <td><span class="tag">Day 2</span></td>
                 <td>2</td>
-                <td>男子團體賽</td>
+                <td>男子團體</td>
                 <td>
-                  <a href="https://www.youtube.com/live/ShMb6xoES9Q?si=plLDDtSMHb2_PmPU" target="_blank" rel="noreferrer">Day2 2ch</a><br />
-                  <a href="https://tonamel.com/competition/PTMkU/court?" target="_blank" rel="noreferrer">男子團體進度</a>
+                  <a href="https://www.youtube.com/live/XFX865FIGg0" target="_blank" rel="noreferrer">第 2 試合場</a><br />
+                  <a href="https://tonamel.com/competition/PTMkU" target="_blank" rel="noreferrer">Tonamel 進度頁</a>
                 </td>
               </tr>
               <tr>
                 <td><span class="tag">Day 2</span></td>
                 <td>3</td>
-                <td>劍道體驗</td>
+                <td>女子團體</td>
                 <td>
-                  <a href="https://www.youtube.com/live/5w9ZTFPNHM8?si=AJxi6VaTylAcmFIv" target="_blank" rel="noreferrer">Day2 3ch</a><br />
-                  <a href="https://www.youtube.com/live/h8DxsslhXPw?si=ltWZO-647mP7ZfQw" target="_blank" rel="noreferrer">Day2 5th feed</a>
+                  <a href="https://www.youtube.com/live/-hgSYtg7C6Y?si=BhBBUiO1T2cEW7hG" target="_blank" rel="noreferrer">第 1 試合場</a><br />
+                  <a href="https://tonamel.com/competition/sFaCp" target="_blank" rel="noreferrer">Tonamel 進度頁</a>
                 </td>
               </tr>
               <tr>
                 <td><span class="tag">Day 2</span></td>
                 <td>4</td>
-                <td>閉幕式</td>
+                <td>男子個人（三段以下）與女子個人相關場次</td>
                 <td>
-                  <a href="https://www.youtube.com/live/XFX865FIGq0?si=y7Tlq6T59dSejab3" target="_blank" rel="noreferrer">Day2 4ch</a><br />
-                  <a href="https://www.youtube.com/live/h8DxsslhXPw?si=ltWZO-647mP7ZfQw" target="_blank" rel="noreferrer">Day2 5th feed</a>
+                  <a href="https://www.youtube.com/live/5w9ZTFPNHM8?si=AJxi6VaTylAcmFIv" target="_blank" rel="noreferrer">第 3 試合場</a><br />
+                  <a href="https://www.youtube.com/live/h8DxsslhXPw?si=y7Tlq6T59dSejab3" target="_blank" rel="noreferrer">第 4 試合場</a>
+                </td>
+              </tr>
+              <tr>
+                <td><span class="tag">Day 2</span></td>
+                <td>5</td>
+                <td>官方播放清單中的補充直播入口</td>
+                <td>
+                  <a href="https://youtube.com/playlist?list=PLaKZ0PAEUfwUuG-VkGyElmndGBawbxExR&si=U3ymTsRPRGlYB_DR" target="_blank" rel="noreferrer">官方播放清單</a>
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
       </article>
-
-      <aside class="panel hero-image" aria-label="劍道錦標賽主視覺圖"></aside>
     </section>
 
     <section class="section">
-      <article class="panel card">
-        <h2 id="streams">各場地直播連結</h2>
+      <article class="panel card" id="streams">
+        <h2>直播入口</h2>
         <div class="links" style="margin-top:14px">
           <div class="link-row">
             <div>
-              <strong>官方直播播放清單</strong>
-              <span>YouTube playlist，適合先整包收藏</span>
+              <strong>官方播放清單</strong>
+              <span>1AOKC YouTube playlist</span>
             </div>
             <a href="https://youtube.com/playlist?list=PLaKZ0PAEUfwUuG-VkGyElmndGBawbxExR&si=U3ymTsRPRGlYB_DR" target="_blank" rel="noreferrer">開啟</a>
           </div>
           <div class="link-row">
             <div>
-              <strong>Day 1 - 1ch</strong>
-              <span>上午主要賽事</span>
+              <strong>Day 1 - 第1試合場</strong>
+              <span>對應 Day 1 官方第 1 試合場</span>
             </div>
             <a href="https://www.youtube.com/live/7nmlBq-FEyw?si=Pxf-VszbgDv-mHFR" target="_blank" rel="noreferrer">開啟</a>
           </div>
           <div class="link-row">
             <div>
-              <strong>Day 1 - 2ch</strong>
-              <span>開幕式與儀式內容</span>
+              <strong>Day 1 - 開閉會式</strong>
+              <span>Day 1 開閉會式頻道</span>
             </div>
             <a href="https://www.youtube.com/live/RJ9AkTw779E?si=t1KzWWzt5oZH7XP6" target="_blank" rel="noreferrer">開啟</a>
           </div>
           <div class="link-row">
             <div>
-              <strong>Day 1 - 3ch</strong>
-              <span>下午個人賽、演武內容</span>
-            </div>
-            <a href="https://www.youtube.com/live/AXz73boqsuY?si=mVTbSt-tgCo5KK1r" target="_blank" rel="noreferrer">開啟</a>
-          </div>
-          <div class="link-row">
-            <div>
-              <strong>Day 1 - 4ch</strong>
-              <span>下午補充場次</span>
+              <strong>Day 1 - 第2試合場</strong>
+              <span>對應 Day 1 官方第 2 試合場</span>
             </div>
             <a href="https://www.youtube.com/live/fMTTjioIwhw?si=m-70bJJmyNyL__3U" target="_blank" rel="noreferrer">開啟</a>
           </div>
           <div class="link-row">
             <div>
-              <strong>Day 2 - 1ch</strong>
-              <span>女子團體賽</span>
+              <strong>Day 1 - 第3試合場</strong>
+              <span>對應 Day 1 官方第 3 試合場</span>
+            </div>
+            <a href="https://www.youtube.com/live/AXz73boqsuY?si=mVTbSt-tgCo5KK1r" target="_blank" rel="noreferrer">開啟</a>
+          </div>
+          <div class="link-row">
+            <div>
+              <strong>Day 1 - 第4試合場</strong>
+              <span>對應 Day 1 官方第 4 試合場</span>
+            </div>
+            <a href="https://www.youtube.com/live/25LyUfnt12s" target="_blank" rel="noreferrer">開啟</a>
+          </div>
+          <div class="link-row">
+            <div>
+              <strong>Day 2 - 第1試合場</strong>
+              <span>對應 Day 2 官方第 1 試合場</span>
             </div>
             <a href="https://www.youtube.com/live/-hgSYtg7C6Y?si=BhBBUiO1T2cEW7hG" target="_blank" rel="noreferrer">開啟</a>
           </div>
           <div class="link-row">
             <div>
-              <strong>Day 2 - 2ch</strong>
-              <span>男子團體賽</span>
+              <strong>Day 2 - 開閉會式</strong>
+              <span>Day 2 開閉會式頻道</span>
             </div>
             <a href="https://www.youtube.com/live/ShMb6xoES9Q?si=plLDDtSMHb2_PmPU" target="_blank" rel="noreferrer">開啟</a>
           </div>
           <div class="link-row">
             <div>
-              <strong>Day 2 - 3ch</strong>
-              <span>團體賽補充場次</span>
+              <strong>Day 2 - 第2試合場</strong>
+              <span>對應 Day 2 官方第 2 試合場</span>
+            </div>
+            <a href="https://www.youtube.com/live/XFX865FIGg0" target="_blank" rel="noreferrer">開啟</a>
+          </div>
+          <div class="link-row">
+            <div>
+              <strong>Day 2 - 第3試合場</strong>
+              <span>對應 Day 2 官方第 3 試合場</span>
             </div>
             <a href="https://www.youtube.com/live/5w9ZTFPNHM8?si=AJxi6VaTylAcmFIv" target="_blank" rel="noreferrer">開啟</a>
           </div>
           <div class="link-row">
             <div>
-              <strong>Day 2 - 4ch</strong>
-              <span>閉幕與補充內容</span>
+              <strong>Day 2 - 第4試合場</strong>
+              <span>對應 Day 2 官方第 4 試合場</span>
             </div>
-            <a href="https://www.youtube.com/live/XFX865FIGq0?si=y7Tlq6T59dSejab3" target="_blank" rel="noreferrer">開啟</a>
-          </div>
-          <div class="link-row">
-            <div>
-              <strong>Day 2 - 5ch</strong>
-              <span>官方公告列出的額外直播入口</span>
-            </div>
-            <a href="https://www.youtube.com/live/h8DxsslhXPw?si=ltWZO-647mP7ZfQw" target="_blank" rel="noreferrer">開啟</a>
+            <a href="https://www.youtube.com/live/h8DxsslhXPw?si=y7Tlq6T59dSejab3" target="_blank" rel="noreferrer">開啟</a>
           </div>
         </div>
       </article>
 
-      <aside class="panel card">
-        <h2>進行資訊</h2>
-        <div class="links" style="margin-top:14px">
-          <div class="link-row"><div><strong>女子個人（三段以下）</strong><span>Day 1 上午</span></div><a href="https://tonamel.com/competition/eM6ql/court?" target="_blank" rel="noreferrer">開啟</a></div>
-          <div class="link-row"><div><strong>男子個人（三段以下）</strong><span>Day 1 上午</span></div><a href="https://tonamel.com/competition/1o7fb/court?" target="_blank" rel="noreferrer">開啟</a></div>
-          <div class="link-row"><div><strong>女子個人（無段位限制）</strong><span>Day 1 下午</span></div><a href="https://tonamel.com/competition/faXVo/court?" target="_blank" rel="noreferrer">開啟</a></div>
-          <div class="link-row"><div><strong>男子個人（無段位限制）</strong><span>Day 1 下午</span></div><a href="https://tonamel.com/competition/B68Ow/court?" target="_blank" rel="noreferrer">開啟</a></div>
-          <div class="link-row"><div><strong>女子團體</strong><span>Day 2</span></div><a href="https://tonamel.com/competition/sFaCp/court?" target="_blank" rel="noreferrer">開啟</a></div>
-          <div class="link-row"><div><strong>男子團體</strong><span>Day 2</span></div><a href="https://tonamel.com/competition/PTMkU/court?" target="_blank" rel="noreferrer">開啟</a></div>
-        </div>
-      </aside>
     </section>
 
-    <section class="panel sources">
-      <h2 style="margin:0">官方參考來源</h2>
+    <section class="panel card sources">
+      <h2>官方來源</h2>
       <ul>
-        <li><a href="https://1aokc.jp/" target="_blank" rel="noreferrer">1AOKC 官方網站（日文）</a></li>
-        <li><a href="https://1aokc.jp/en" target="_blank" rel="noreferrer">1AOKC 官方網站（英文）</a></li>
+        <li><a href="https://1aokc.jp/" target="_blank" rel="noreferrer">1AOKC 官方網站</a></li>
+        <li><a href="https://1aokc.jp/en" target="_blank" rel="noreferrer">1AOKC English</a></li>
         <li><a href="https://1aokc.jp/news/005" target="_blank" rel="noreferrer">官方直播公告</a></li>
-        <li><a href="https://www.kendo.or.jp/" target="_blank" rel="noreferrer">全日本剣道連盟（AJKF）</a></li>
+        <li><a href="https://www.kendo.or.jp/" target="_blank" rel="noreferrer">全日本剣道連盟</a></li>
       </ul>
     </section>
 
-    <p class="footer">資料依官方公告整理，若直播或賽程有更新，建議以 1AOKC 官網為準。</p>
+    <div class="footer">資料整理與版面更新完成</div>
   </main>
 </body>
 </html>
